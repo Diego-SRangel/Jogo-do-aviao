@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avião Entre Prédios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <section class="game-panel">
+        <div class="hud">
+          <div>
+            <p class="eyebrow">Missao</p>
+            <h1>Avião Entre Prédios</h1>
+          </div>
+          <div class="scoreboard">
+            <div>
+              <span>Pontos</span>
+              <strong id="score">0</strong>
+            </div>
+            <div>
+              <span>Recorde</span>
+              <strong id="best-score">0</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="canvas-frame">
+          <canvas id="game" width="420" height="720" aria-label="Jogo de avião entre prédios"></canvas>
+
+          <div class="overlay" id="overlay">
+            <p class="overlay-kicker">Toque, clique ou aperte espaco</p>
+            <h2 id="overlay-title">Decole e atravesse a cidade</h2>
+            <p id="overlay-text">
+              Passe pelos vãos entre os prédios e mantenha o avião no ar.
+            </p>
+            <button id="start-button" type="button">Começar voo</button>
+          </div>
+        </div>
+
+        <div class="tips">
+          <p><kbd>Espaço</kbd> sobe</p>
+          <p><kbd>R</kbd> reinicia</p>
+          <p>Mobile: toque na tela</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

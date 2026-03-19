@@ -1,0 +1,231 @@
+:root {
+  --paper: #efe3c7;
+  --paper-deep: #dfcfab;
+  --ink: #20170f;
+  --ink-soft: #5a4a37;
+  --stamp: #b64926;
+  --shadow: 0 24px 70px rgba(34, 23, 12, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top, rgba(182, 73, 38, 0.08), transparent 24%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(53, 39, 28, 0.02) 0,
+      rgba(53, 39, 28, 0.02) 2px,
+      transparent 2px,
+      transparent 8px
+    ),
+    linear-gradient(180deg, #f7efd8 0%, #ead9b4 100%);
+}
+
+.game-shell {
+  width: min(100%, 980px);
+}
+
+.game-panel {
+  padding: 24px;
+  border: 2px solid rgba(32, 23, 15, 0.2);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.48), transparent 22%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(90, 74, 55, 0.02) 0,
+      rgba(90, 74, 55, 0.02) 1px,
+      transparent 1px,
+      transparent 5px
+    ),
+    linear-gradient(180deg, rgba(255, 251, 244, 0.96) 0%, rgba(239, 227, 199, 0.98) 100%);
+  box-shadow: var(--shadow);
+}
+
+.hud,
+.tips,
+.scoreboard {
+  display: flex;
+  align-items: center;
+}
+
+.hud {
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  color: var(--stamp);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.6vw, 3rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.scoreboard {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.scoreboard div {
+  min-width: 120px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 250, 240, 0.88);
+  border: 1px solid rgba(32, 23, 15, 0.15);
+  box-shadow: inset 0 -6px 0 rgba(32, 23, 15, 0.04);
+}
+
+.scoreboard span {
+  display: block;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.scoreboard strong {
+  font-size: 1.8rem;
+}
+
+.canvas-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 2px solid rgba(32, 23, 15, 0.18);
+  background: linear-gradient(180deg, #efe8d4 0%, #e2d4b3 100%);
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 78vh;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 14px;
+  padding: 28px;
+  text-align: center;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      rgba(32, 23, 15, 0.06) 0,
+      rgba(32, 23, 15, 0.06) 2px,
+      transparent 2px,
+      transparent 7px
+    ),
+    linear-gradient(180deg, rgba(244, 235, 214, 0.5), rgba(230, 214, 181, 0.92));
+  transition: opacity 200ms ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay-kicker {
+  margin: 0;
+  color: var(--stamp);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.overlay h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 0.95;
+  max-width: 9ch;
+}
+
+.overlay p {
+  margin: 0;
+  max-width: 34ch;
+  color: var(--ink-soft);
+}
+
+button {
+  border: 1px solid rgba(32, 23, 15, 0.2);
+  border-radius: 999px;
+  padding: 14px 22px;
+  font: inherit;
+  font-weight: 700;
+  color: #fff7ef;
+  background: linear-gradient(180deg, #b64926 0%, #8e3417 100%);
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(88, 37, 18, 0.2);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(88, 37, 18, 0.26);
+}
+
+.tips {
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+  color: var(--ink-soft);
+}
+
+kbd {
+  padding: 3px 8px;
+  border-radius: 8px;
+  border: 1px solid rgba(32, 23, 15, 0.14);
+  background: rgba(255, 250, 240, 0.8);
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  body {
+    padding: 12px;
+  }
+
+  .game-panel {
+    padding: 16px;
+    border-radius: 22px;
+  }
+
+  .hud {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .scoreboard div {
+    min-width: 104px;
+  }
+
+  .tips {
+    gap: 10px 14px;
+    font-size: 0.92rem;
+  }
+}
